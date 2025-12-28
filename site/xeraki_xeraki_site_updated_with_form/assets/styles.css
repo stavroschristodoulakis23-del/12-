@@ -1,0 +1,380 @@
+/* Mobile-first, ultra clear */
+:root{
+  --bg:#ffffff;
+  --text:#0b1220;
+  --muted:#50617a;
+  --line:rgba(11,18,32,.10);
+  --card:#ffffff;
+  --brand:#1f6feb;
+  --brand2:#7c3aed;
+  --shadow:0 14px 34px rgba(11,18,32,.10);
+  --r:18px;
+  --max:1100px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: var(--bg);
+  color:var(--text);
+  line-height:1.55;
+}
+a{color:inherit; text-decoration:none}
+.container{width:100%; max-width:var(--max); margin:0 auto; padding:0 16px}
+
+header{
+  position:sticky; top:0; z-index:60;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:10px; padding:10px 0;
+}
+.brand{display:flex; align-items:center; gap:10px; min-width:0}
+.logo{width:54px; height:auto; display:block}
+.brand-title{min-width:0}
+.brand-title b{display:block; font-size:15px; line-height:1.1}
+.brand-title span{display:block; font-size:12px; color:var(--muted); letter-spacing:.3px}
+
+.icon-btn{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:14px;
+  padding:10px 12px;
+  cursor:pointer;
+  box-shadow: 0 6px 14px rgba(11,18,32,.06);
+}
+
+.drawer{
+  display:none;
+  border-top:1px solid var(--line);
+}
+.drawer.open{display:block}
+.drawer a{
+  display:block;
+  padding:14px 6px;
+  border-bottom:1px solid rgba(11,18,32,.06);
+  color:var(--muted);
+  font-weight:600;
+}
+.drawer a.active{color:var(--text)}
+.drawer .drawer-actions{
+  display:flex; gap:10px; flex-wrap:wrap;
+  padding:12px 6px;
+}
+
+.chip{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--muted);
+  font-size:13px;
+}
+
+main{padding:18px 0 92px}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+.card + .card{margin-top:14px}
+
+h1{margin:0 0 10px; font-size:26px; line-height:1.15; letter-spacing:-.2px}
+h2{margin:0 0 8px; font-size:18px; letter-spacing:-.1px}
+p{margin:0 0 10px}
+.muted{color:var(--muted)}
+.divider{height:1px; background:var(--line); margin:14px 0}
+
+.btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:12px 14px; border-radius:14px;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--text);
+  font-weight:700;
+}
+.btn.primary{
+  border:none;
+  color:#fff;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+}
+.btn.full{width:100%}
+
+.bullets{margin:0; padding-left:18px; color:var(--muted)}
+.bullets li{margin:8px 0}
+
+.badge-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(31,111,235,.04);
+  color:var(--muted);
+  font-size:13px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+.gitem{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow: 0 10px 22px rgba(11,18,32,.10);
+  background:#fff;
+  display:grid;
+  grid-template-columns: 1fr;
+}
+.gitem img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* Steps as simple list */
+.steps{display:grid; gap:10px; margin-top:10px}
+.step{
+  display:flex; gap:12px; align-items:flex-start;
+  padding:12px; border-radius:16px;
+  border:1px solid var(--line);
+  background: rgba(11,18,32,.02);
+}
+.step .num{
+  width:34px; height:34px; border-radius:12px;
+  display:grid; place-items:center;
+  font-weight:900;
+  background: rgba(31,111,235,.10);
+  border:1px solid rgba(31,111,235,.18);
+  flex:0 0 auto;
+}
+.step b{display:block}
+.step span{display:block; color:var(--muted); font-size:13px; margin-top:3px}
+
+/* FAQ */
+details{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px 14px;
+  background: rgba(11,18,32,.02);
+}
+details + details{margin-top:10px}
+summary{cursor:pointer; list-style:none; font-weight:800}
+summary::-webkit-details-marker{display:none}
+details p{color:var(--muted); margin:10px 0 0}
+
+/* Bottom nav (mobile) */
+.bottomnav{
+  position:fixed; left:0; right:0; bottom:0; z-index:70;
+  background: rgba(255,255,255,.96);
+  border-top:1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+.bottomnav .wrap{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:6px;
+  padding:10px 10px;
+}
+.bnav{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px;
+  padding:10px 8px;
+  border-radius:16px;
+  color:var(--muted);
+  font-size:12px;
+  border:1px solid transparent;
+}
+.bnav.active{
+  color:var(--text);
+  background: rgba(31,111,235,.06);
+  border-color: rgba(31,111,235,.14);
+}
+.bnav .ico{font-size:18px}
+
+/* Desktop enhancements */
+@media (min-width: 920px){
+  main{padding-bottom:30px}
+  .bottomnav{display:none}
+  .container{padding:0 18px}
+  .logo{width:84px}
+  .brand-title b{font-size:18px}
+  .brand-title span{font-size:13px}
+  .grid2{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap:16px;
+  }
+  .card + .card{margin-top:16px}
+  .gallery{grid-template-columns: repeat(3, 1fr)}
+  .gitem img{height:280px; object-fit:cover}
+}
+
+
+/* Gallery text (no overlap) */
+.gtext{
+  padding:14px 14px 16px;
+  border-top:1px solid rgba(11,18,32,.06);
+}
+.gtext b{display:block; font-size:14px; margin:0 0 6px}
+.gtext span{display:block; color:var(--muted); font-size:13px}
+
+/* Testimonials */
+.tgrid{display:grid; gap:12px; margin-top:12px}
+.tcard{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background: rgba(11,18,32,.02);
+  padding:14px;
+}
+.tstars{font-size:16px; letter-spacing:1px}
+.tquote{color:var(--muted); margin-top:8px}
+.tname{margin-top:10px; font-weight:800}
+.tmeta{color:var(--muted); font-size:13px; margin-top:2px}
+
+/* Footer */
+footer{
+  border-top:1px solid var(--line);
+  padding:18px 0 90px;
+  background: rgba(11,18,32,.01);
+}
+.footgrid{display:grid; gap:10px}
+.footnote{color:var(--muted); font-size:13px}
+
+/* Better focus for accessibility */
+:focus-visible{outline:3px solid rgba(31,111,235,.35); outline-offset:2px; border-radius:12px}
+
+/* Desktop improvements */
+@media (min-width: 920px){
+  .gitem{grid-template-columns: 1.15fr .85fr}
+  .gtext{border-top:none; border-left:1px solid rgba(11,18,32,.06)}
+  .tgrid{grid-template-columns: repeat(3, 1fr)}
+  footer{padding-bottom:30px}
+  .footgrid{grid-template-columns: 1.1fr .9fr; align-items:start}
+}
+
+
+
+
+@media (min-width: 920px){
+  .qrwrap{grid-template-columns: 260px 1fr}
+}
+
+
+/* Services: "Τι κερδίζει το παιδί" block (no redesign) */
+.gainblock{margin:16px 0}
+.gaintitle{margin:0 0 10px; font-size:20px; letter-spacing:-.1px}
+.gaintext{margin:0}
+@media (min-width: 920px){
+  .gaintitle{font-size:19px}
+}
+
+
+/* Brand: script-like feel for "Χεράκι Χεράκι" (best-effort to match logo) */
+.brand-title b{
+  font-family: "Segoe Script","Brush Script MT","Snell Roundhand","Apple Chancery","Comic Sans MS",cursive;
+  letter-spacing: .2px;
+}
+
+.site-logo{transform:scale(2);transform-origin:left top;}
+
+/* Force larger header logo */
+.header .logo img,
+.site-logo img {
+  width: 96px !important;
+  height: auto !important;
+}
+@media (min-width: 768px){
+  .header .logo img,
+  .site-logo img {
+    width: 120px !important;
+  }
+}
+
+/* EXTRA LARGE header logo – mobile first */
+.header .logo img,
+.site-logo img {
+  width: 140px !important;
+  height: auto !important;
+}
+
+@media (min-width: 768px){
+  .header .logo img,
+  .site-logo img {
+    width: 180px !important;
+  }
+}
+
+/* LOGO x4 SIZE – VERY LARGE FOR MOBILE */
+.header .logo img,
+.site-logo img {
+  width: 260px !important;
+  height: auto !important;
+}
+
+@media (min-width: 768px){
+  .header .logo img,
+  .site-logo img {
+    width: 320px !important;
+  }
+}
+
+/* LOGO fills entire visible circle on mobile */
+.header .logo,
+.site-logo {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.header .logo img,
+.site-logo img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* ===== BIG HEADER LOGO (original layout preserved) ===== */
+.header .logo img,
+.topbar .brand .logo img,
+.site-logo img{
+  width: 220px !important;
+  height: auto !important;
+  max-width: none !important;
+}
+
+@media (min-width: 900px){
+  .header .logo img,
+  .topbar .brand .logo img,
+  .site-logo img{
+    width: 280px !important;
+  }
+}
+
+/* Interest form */
+.form .fgrid{display:grid; gap:12px}
+.field{display:grid; gap:6px}
+.field span{font-weight:700; font-size:13px; color:var(--muted)}
+.field input, .field select, .field textarea{
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-size:15px;
+  color:var(--text);
+}
+.field input::placeholder{color:rgba(80,97,122,.7)}
+@media (min-width: 920px){
+  .form .fgrid{grid-template-columns: repeat(2, 1fr)}
+}
